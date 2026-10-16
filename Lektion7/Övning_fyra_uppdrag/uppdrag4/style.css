@@ -1,0 +1,27 @@
+/* Uppdrag 4 – Utmaningen */
+/* Text mellan snedstreck-stjärna är kommentarer. Webbläsaren ignorerar dem. */
+
+h1 {
+    color: #264653;
+    font-family: Arial, sans-serif;
+    /* Din kod här */
+}
+
+h2 {
+    color: #E76F51;
+    font-family: Arial, sans-serif;
+    /* Din kod här */
+}
+
+div {
+    background-color: #2A9D8F;
+    font-family: Arial, sans-serif;
+    /* Din kod här */
+}
+
+p {
+    background-color: #E9C46A;
+    color: #264653;
+    font-family: Arial, sans-serif;
+    /* Din kod här */
+}

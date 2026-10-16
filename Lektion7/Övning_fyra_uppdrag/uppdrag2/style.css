@@ -1,0 +1,26 @@
+/* Uppdrag 2 – Textstorlekar */
+/* Text mellan snedstreck-stjärna är kommentarer. Webbläsaren ignorerar dem. */
+
+h1 {
+    color: #264653;
+    font-family: Arial, sans-serif;
+    /* Din kod här: textstorlek */
+}
+
+h2 {
+    color: #E76F51;
+    font-family: Arial, sans-serif;
+    /* Din kod här: textstorlek */
+}
+
+p {
+    color: #333333;
+    font-family: Arial, sans-serif;
+    /* Din kod här: textstorlek */
+}
+
+div {
+    background-color: #DCEFEA;
+    font-family: Arial, sans-serif;
+    /* Din kod här: textstorlek */
+}

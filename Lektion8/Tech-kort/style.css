@@ -1,0 +1,50 @@
+header h1 {
+    font-size: 2em;
+    font-weight: bold;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    color: #333;
+    margin: 10px 0;
+    padding: 10px 10px;
+    border: 1px solid #ccc;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+.kort {
+    width: 300px;
+    border: 2px solid gray;
+    padding: 20px 10px;
+    margin: 15px 0;
+    background-color: #c3f8f4;
+    font-size: 1.2em;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+main section {
+    padding: 0 0 10px 0;
+    font-family: Georgia, 'Times New Roman', Times, serif, sans-serif;
+    text-align: center;
+    color: #333;
+    background-color: #7fe5ea;
+}
+#datum {
+    font-size: 1em;
+    font-family: Arial, sans-serif;
+    text-transform: uppercase;
+    color: #6c6b6b;
+}
+#rubrik {
+    font-size: 1.5em;
+    font-weight: bold;
+    color: #333;
+    margin: 10px 0;
+}
+p, a {
+    font-size: 0.8em;
+    color: #757575;
+}
+a {
+    text-decoration: none;
+    font-weight: bold;
+    color: #007BFF;
+}

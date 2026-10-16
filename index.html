@@ -69,6 +69,11 @@
 			font-size: 1.05rem;
 		}
 
+		.lesson-status {
+			color: var(--muted);
+			font: .9rem Arial, sans-serif;
+		}
+
 		.lessons {
 			display: grid;
 			grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
@@ -82,10 +87,15 @@
 			border-top: 5px solid var(--accent);
 		}
 
+		.project-card {
+			border-top-color: #356b60;
+		}
+
 		h2 { margin-bottom: .15rem; font-size: 1.45rem; }
-		.folder { margin-bottom: 1rem; color: var(--muted); font: .82rem/1.3 Consolas, monospace; }
+		.folder { margin-bottom: 1rem; color: var(--muted); font: .82rem/1.3 Consolas, monospace; overflow-wrap: anywhere; }
 
 		ul { margin: 0; padding: 0; list-style: none; }
+		li { overflow-wrap: anywhere; }
 		li + li { margin-top: .55rem; }
 
 		a {
@@ -141,77 +151,16 @@
 	<header>
 		<div>
 			<p class="eyebrow">Webbutveckling</p>
-			<h1>Alla lektioner på ett ställe.</h1>
+			<h1>Alla lektioner och projekt på ett ställe.</h1>
 			<p>En samlad startsida för projektets HTML-sidor, bilder, ljud och video.</p>
 		</div>
 	</header>
 
 	<main>
-		<p class="intro">Välj en mapp och öppna en fil. Alla länkar använder relativa sökvägar, så sidan fungerar både lokalt och på GitHub Pages.</p>
+		<p class="intro">Välj en mapp och öppna en fil. Mappar och filer hämtas automatiskt från GitHub.</p>
+		<p class="lesson-status" id="lesson-status" role="status" aria-live="polite">Laddar mappar…</p>
 
-		<div class="lessons">
-			<section>
-				<h2>Lektion 1</h2>
-				<p class="folder">Lektion1/</p>
-				<ul>
-					<li><a href="Lektion1/Skelett_hemsidan.html">Skelett-hemsidan</a> <span class="file-type">HTML</span></li>
-				</ul>
-			</section>
-
-			<section>
-				<h2>Lektion 2</h2>
-				<p class="folder">Lektion2/</p>
-				<ul>
-					<li><a href="Lektion2/grundstruktur.html">Grundstruktur</a> <span class="file-type">HTML</span></li>
-				</ul>
-			</section>
-
-			<section>
-				<h2>Lektion 3</h2>
-				<p class="folder">Lektion3/Programmeringsövning_länkar/</p>
-				<ul>
-					<li><a href="Lektion3/Programmerings%C3%B6vning_l%C3%A4nkar/index.html">Programmeringsövning</a> <span class="file-type">HTML</span></li>
-					<li><a href="Lektion3/Programmerings%C3%B6vning_l%C3%A4nkar/f%C3%B6rfattare.html">Författare</a> <span class="file-type">HTML</span></li>
-					<li><a href="Lektion3/Programmerings%C3%B6vning_l%C3%A4nkar/Olika%20spr%C3%A5k/spr%C3%A5k.html">Olika språk</a> <span class="file-type">HTML</span></li>
-					<li><a href="Lektion3/Programmerings%C3%B6vning_l%C3%A4nkar/Olika%20spr%C3%A5k/lisps-pr%C3%A5k/lisp-spr%C3%A5k.html">Lisp-språk</a> <span class="file-type">HTML</span></li>
-					<li><a href="Lektion3/Programmerings%C3%B6vning_l%C3%A4nkar/Olika%20spr%C3%A5k/icke-lisp/icke-lisp.html">Icke-Lisp</a> <span class="file-type">HTML</span></li>
-				</ul>
-			</section>
-
-			<section>
-				<h2>Lektion 4</h2>
-				<p class="folder">Lektion4/</p>
-				<ul>
-					<li><a href="Lektion4/responsivabilder.html">Responsiva bilder</a> <span class="file-type">HTML</span></li>
-					<li><a href="Lektion4/cat-1279.jpg">Cat 1279</a> <span class="file-type">JPG</span></li>
-				</ul>
-			</section>
-
-			<section>
-				<h2>Lektion 5</h2>
-				<p class="folder">Lektion5/ och Lektion5/Test/</p>
-				<ul>
-					<li><a href="Lektion5/form.html">Formulär</a> <span class="file-type">HTML</span></li>
-					<li><a href="Lektion5/Test/index.html">Test: startsida</a> <span class="file-type">HTML</span></li>
-					<li><a href="Lektion5/Test/form.html">Test: formulär</a> <span class="file-type">HTML</span></li>
-					<li><a href="Lektion5/Test/hallo.html">Test: hallo</a> <span class="file-type">HTML</span></li>
-					<li><a href="Lektion5/Test/main.css">Test: stylesheet</a> <span class="file-type">CSS</span></li>
-					<li><a href="Lektion5/Test/cat.jpg">Test: cat</a> <span class="file-type">JPG</span></li>
-				</ul>
-			</section>
-
-			<section>
-				<h2>Lektion 6</h2>
-				<p class="folder">Lektion6/, Lektion6/Ljud och Lektion6/Video</p>
-				<ul>
-					<li><a href="Lektion6/multimedia.html">Multimedia</a> <span class="file-type">HTML</span></li>
-					<li><a href="Lektion6/Ljud/Jatter_Oger.mp3">Ljud: Jätter Oger</a> <span class="file-type">MP3</span></li>
-					<li><a href="Lektion6/Ljud/Jatter_Oger.ogg">Ljud: Jätter Oger</a> <span class="file-type">OGG</span></li>
-					<li><a href="Lektion6/Video/content_warning(15).mp4">Video: Content warning</a> <span class="file-type">MP4</span></li>
-					<li><a href="Lektion6/Video/content_warning(15).webm">Video: Content warning</a> <span class="file-type">WEBM</span></li>
-				</ul>
-			</section>
-		</div>
+		<div class="lessons"></div>
 	</main>
 
 	<footer>
@@ -226,6 +175,80 @@
 			</div>
 		</div>
 	</footer>
+
+	<script>
+		(async function () {
+			const grid = document.querySelector('.lessons');
+			const status = document.getElementById('lesson-status');
+
+			try {
+				const response = await fetch('https://api.github.com/repos/FOrt304/Webbutveckling/git/trees/main?recursive=1', {
+					cache: 'no-store',
+					headers: { Accept: 'application/vnd.github+json' }
+				});
+				if (!response.ok) throw new Error('GitHub API returned ' + response.status);
+
+				const tree = await response.json();
+				if (tree.truncated) throw new Error('GitHub returned an incomplete file tree');
+
+				const folderFiles = new Map();
+				for (const item of tree.tree) {
+					if (item.type !== 'blob') continue;
+					const separator = item.path.indexOf('/');
+					if (separator === -1) continue;
+
+					const folder = item.path.slice(0, separator);
+					if (folder.toLowerCase() === '.github') continue;
+					if (!folderFiles.has(folder)) folderFiles.set(folder, []);
+					folderFiles.get(folder).push(item.path);
+				}
+
+				const cards = Array.from(folderFiles, function ([folder, files]) {
+					const section = document.createElement('section');
+					if (/^(projekt|projects?)$/i.test(folder)) section.classList.add('project-card');
+					const heading = document.createElement('h2');
+					heading.textContent = folder.replace(/([a-z])(\d)/i, '$1 $2');
+
+					const folderLabel = document.createElement('p');
+					folderLabel.className = 'folder';
+					folderLabel.textContent = folder + '/';
+
+					const list = document.createElement('ul');
+					files.sort(function (a, b) {
+						return a.localeCompare(b, 'sv', { numeric: true });
+					});
+					for (const file of files) {
+						const relativePath = file.slice(folder.length + 1);
+						const item = document.createElement('li');
+						const link = document.createElement('a');
+						link.href = file.split('/').map(encodeURIComponent).join('/');
+						link.textContent = relativePath;
+
+						const extension = relativePath.includes('.')
+							? relativePath.split('.').pop().toUpperCase()
+							: 'FIL';
+						const type = document.createElement('span');
+						type.className = 'file-type';
+						type.textContent = extension;
+
+						item.append(link, ' ', type);
+						list.append(item);
+					}
+
+					section.append(heading, folderLabel, list);
+					return section;
+				}).sort(function (a, b) {
+					return a.querySelector('h2').textContent.localeCompare(b.querySelector('h2').textContent, 'sv', { numeric: true });
+				});
+
+				grid.replaceChildren(...cards);
+				status.textContent = cards.length ? '' : 'Inga mappar hittades i projektet.';
+			} catch (error) {
+				console.error('Kunde inte ladda mappar från GitHub:', error);
+				status.textContent = 'Kunde inte ladda mappar automatiskt från GitHub.';
+			}
+		})();
+	</script>
 
 	<script type="module">
 		import { initializeApp } from 'https://www.gstatic.com/firebasejs/12.2.1/firebase-app.js';
