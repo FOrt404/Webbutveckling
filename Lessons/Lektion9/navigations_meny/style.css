@@ -1,0 +1,25 @@
+#logo {
+    display:block;
+    width: 50px;
+    height: 50px;
+}
+ul {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+
+    background-color: lightblue;
+    list-style: none;
+    font-family: Arial;
+    font-weight: bold;
+    font-size: 1em;
+}
+li {
+    margin: 10px;
+}
+.logo, #about {
+    margin-right: auto;
+}
+#contact {
+    margin-left: auto;
+}

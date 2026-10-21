@@ -1,0 +1,23 @@
+body {
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+nav, footer {
+    background-color: lightblue;
+    min-height: 60px;
+}
+#container {
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+}
+main {
+    background-color: lightgray;
+    flex: 3 1 0;
+}
+aside {
+    background-color: orange;
+    flex: 1 1 0;
+}

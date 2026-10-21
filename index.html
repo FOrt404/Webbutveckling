@@ -4,14 +4,14 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Webbutveckling | Alla lektioner</title>
-	<link rel="icon" type="image/jpeg" href="Lektion5/Test/cat.jpg">
+	<link rel="icon" type="image/jpeg" href="Lessons/Lektion5/Test/cat.jpg">
 	<meta name="description" content="Alla lektioner och filer i Alexander Lundbergs webbutvecklingsprojekt. Senast uppdaterad: 17 september 2026.">
 	<meta property="article:modified_time" content="2026-09-17T00:00:00+02:00">
 	<meta property="og:updated_time" content="2026-09-17T00:00:00+02:00">
 	<meta name="theme-color" content="#17212B">
 	<meta property="og:type" content="website">
 	<meta property="og:url" content="https://fort304.github.io/Webbutveckling/">
-	<meta property="og:image" content="https://fort304.github.io/Webbutveckling/Lektion4/cat-1279.jpg">
+	<meta property="og:image" content="https://fort304.github.io/Webbutveckling/Lessons/Lektion4/cat-1279.jpg">
 	<meta property="og:image:type" content="image/jpeg">
 	<meta property="og:image:width" content="1279">
 	<meta property="og:image:height" content="723">
@@ -191,55 +191,77 @@
 				const tree = await response.json();
 				if (tree.truncated) throw new Error('GitHub returned an incomplete file tree');
 
-				const folderFiles = new Map();
+				const root = { folders: new Map(), files: [] };
 				for (const item of tree.tree) {
 					if (item.type !== 'blob') continue;
-					const separator = item.path.indexOf('/');
-					if (separator === -1) continue;
+					const parts = item.path.split('/');
+					if (parts[0].toLowerCase() === '.github' || parts.length === 1) continue;
 
-					const folder = item.path.slice(0, separator);
-					if (folder.toLowerCase() === '.github') continue;
-					if (!folderFiles.has(folder)) folderFiles.set(folder, []);
-					folderFiles.get(folder).push(item.path);
+					let folder = root;
+					for (const part of parts.slice(0, -1)) {
+						const path = folder === root ? part : folder.path + '/' + part;
+						if (!folder.folders.has(part)) {
+							folder.folders.set(part, { name: part, path: path, folders: new Map(), files: [] });
+						}
+						folder = folder.folders.get(part);
+					}
+					folder.files.push(item.path);
 				}
 
-				const cards = Array.from(folderFiles, function ([folder, files]) {
+				function renderFolder(folder) {
 					const section = document.createElement('section');
-					if (/^(projekt|projects?)$/i.test(folder)) section.classList.add('project-card');
+					if (/^(projekt|projects?)$/i.test(folder.name)) section.classList.add('project-card');
 					const heading = document.createElement('h2');
-					heading.textContent = folder.replace(/([a-z])(\d)/i, '$1 $2');
+					heading.textContent = folder.name.replace(/([a-z])(\d)/i, '$1 $2');
 
 					const folderLabel = document.createElement('p');
 					folderLabel.className = 'folder';
-					folderLabel.textContent = folder + '/';
+					folderLabel.textContent = folder.path + '/';
 
-					const list = document.createElement('ul');
-					files.sort(function (a, b) {
+					let fileList;
+					const files = folder.files.sort(function (a, b) {
 						return a.localeCompare(b, 'sv', { numeric: true });
 					});
 					for (const file of files) {
-						const relativePath = file.slice(folder.length + 1);
 						const item = document.createElement('li');
 						const link = document.createElement('a');
 						link.href = file.split('/').map(encodeURIComponent).join('/');
-						link.textContent = relativePath;
+						link.textContent = file.slice(folder.path.length + 1);
 
-						const extension = relativePath.includes('.')
-							? relativePath.split('.').pop().toUpperCase()
+						const fileName = file.split('/').pop();
+						const extension = fileName.includes('.')
+							? fileName.split('.').pop().toUpperCase()
 							: 'FIL';
 						const type = document.createElement('span');
 						type.className = 'file-type';
 						type.textContent = extension;
 
 						item.append(link, ' ', type);
-						list.append(item);
+						if (!fileList) fileList = document.createElement('ul');
+						fileList.append(item);
 					}
 
-					section.append(heading, folderLabel, list);
+					section.prepend(heading, folderLabel);
+					if (fileList) section.append(fileList);
+					const children = Array.from(folder.folders.values())
+						.sort(function (a, b) {
+							return a.name.localeCompare(b.name, 'sv', { numeric: true });
+						})
+						.map(renderFolder);
+					if (children.length) {
+						const childGrid = document.createElement('div');
+						childGrid.className = 'lessons';
+						childGrid.append(...children);
+						section.append(childGrid);
+					}
 					return section;
-				}).sort(function (a, b) {
-					return a.querySelector('h2').textContent.localeCompare(b.querySelector('h2').textContent, 'sv', { numeric: true });
-				});
+				}
+
+				const cards = Array.from(root.folders.values())
+					.sort(function (a, b) {
+						return a.name.localeCompare(b.name, 'sv', { numeric: true });
+					})
+					.map(renderFolder);
 
 				grid.replaceChildren(...cards);
 				status.textContent = cards.length ? '' : 'Inga mappar hittades i projektet.';
