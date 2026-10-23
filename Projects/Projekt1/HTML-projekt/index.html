@@ -6,6 +6,7 @@
         <!--Metadata-->
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
         <!--Titel på sidan-->
         <title>Startsida</title>
     </head>
@@ -16,40 +17,34 @@
                 <nav>
                 <!-- Huvudmeny -->
 
-                    <table cellpadding="10">
                     <!-- En Tabbel, cellpadding gör melanrum i tabellen-->
-                        <tr>
-                            <td><a href="index.html">Startsida</a></td>
-                            <td><a href="linsgryta.html">Linsgryta</a></td>
-                            <td><a href="halloumigryta.html">Halloumigryta</a></td>
-                            <td><a href="quinoabiffar.html">Quinoabiffar</a></td>
-                            <td><a href="resurser.html">Resurser</a></td>
-                        </tr>
-                    </table>
+                    <ul>
+                        <li class="logo"><img id="logo" src="./bilder/logo.png" alt="Logo"></li>
+                        <li id="home"><a href="index.html" aria-current="page">Startsida</a></li>
+                        <li><a href="linsgryta.html">Linsgryta</a></li>
+                        <li><a href="halloumigryta.html">Halloumigryta</a></li>
+                        <li><a href="quinoabiffar.html">Quinoabiffar</a></li>
+                        <li id="resurser"><a href="resurser.html">Resurser</a></li>
+                    </ul>
                 </nav>
             </section>
             <!--Företagets Namn-->
             
-            <table>
+        <div id="about">
+            <section>
+                <h1 class="rubrik">Power<span>Plant</span></h1>
+                <p>Varmt välkommen till vår webbplats! Vår vision är att möjliggöra effektiv muskeluppbyggnad och optimal hälsa helt utan nyttjande av animaliska produkter.</p>
+            </section>
             <!-- En tabell så bilden hamnar brevid beskrivningen-->
-                <tr>
-                    <td>
-                        <h1><span>PowerPlant</span></h1>
-                        <p>Varmt välkommen till vår webbplats! Vår vision är att möjliggöra effektiv muskeluppbyggnad och optimal hälsa helt utan nyttjande av animaliska produkter.</p>
-                    </td>
-
-                    <td>
-                        <img
-                            src="./bilder/vegomat-main-430px.jpg"
-                            srcset="./bilder/vegomat-main-215px.jpg 215w,
-                                    ./bilder/vegomat-main-430px.jpg 430w,
-                                    ./bilder/vegomat-main-645px.jpg 645w,
-                                    ./bilder/vegomat-main-860px.jpg 860w"
-                            sizes="(max-width: 600px) 215px, 430px"
-                            alt="Vegetarisk mat">
-                    </td>
-                </tr>
-            </table>
+            <img
+            src="./bilder/vegomat-main-430px.jpg"
+            srcset="./bilder/vegomat-main-215px.jpg 215w,
+                    ./bilder/vegomat-main-430px.jpg 430w,
+                    ./bilder/vegomat-main-645px.jpg 645w,
+                    ./bilder/vegomat-main-860px.jpg 860w"
+            sizes="(max-width: 600px) 215px, 430px"
+            alt="Vegetarisk mat">
+        </div>
 
         </header>
         <main>
@@ -62,9 +57,14 @@
         </main>
         <footer>
             <!-- Footern där kotact info fins-->
-            <p>PowerPlant - Vegetariska recept för en aktiv livsstil</p>
-            <p><a href="mailto:kontakt@powerplant.se">Kontakta oss</a></p>
-            <p>© 2026 PowerPlant</p>
+            <section>
+                <p class="rubrik">PowerPlant</p>
+                <p>Vegetariska recept för en aktiv livsstil</p>
+            </section>
+            <section id="kontakt">
+                <p><a href="mailto:kontakt@powerplant.se">Kontakta oss</a></p>
+                <p>© 2026 PowerPlant</p>
+            </section>
         </footer>
     </body>
 </html>

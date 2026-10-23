@@ -6,30 +6,23 @@
         <!--Metadata-->
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="style.css">
         <!--Titel på sidan-->
         <title>Resurser</title>
     </head>
     <body>
         <header>
-            <!--Navigationsfältet (ovanför på en rad i webbsidan)-->
-            <section>
-                <nav>
-                <!-- Huvudmeny -->
-
-                    <table cellpadding="10">
-                    <!-- En Tabbel, cellpadding gör melanrum i tabellen-->
-                        <tr>
-                            <td><a href="index.html">Startsida</a></td>
-                            <td><a href="linsgryta.html">Linsgryta</a></td>
-                            <td><a href="halloumigryta.html">Halloumigryta</a></td>
-                            <td><a href="quinoabiffar.html">Quinoabiffar</a></td>
-                            <td><a href="resurser.html">Resurser</a></td>
-                        </tr>
-                    </table>
-                </nav>
-            </section>
-            <!--Företagets Namn-->
-            <h1><span>PowerPlant</span></h1>
+            <nav>
+                <ul>
+                    <li class="logo"><img id="logo" src="./bilder/logo.png" alt="Logo"></li>
+                    <li id="home"><a href="index.html">Startsida</a></li>
+                    <li><a href="linsgryta.html">Linsgryta</a></li>
+                    <li><a href="halloumigryta.html">Halloumigryta</a></li>
+                    <li><a href="quinoabiffar.html">Quinoabiffar</a></li>
+                    <li id="resurser"><a href="resurser.html" aria-current="page">Resurser</a></li>
+                </ul>
+            </nav>
+            <h1 class="rubrik">Power<span>Plant</span></h1>
         </header>
         <main>
             <section>
@@ -102,10 +95,14 @@
             </section>
         </main>
         <footer>
-            <!-- Footern där kotact info fins-->
-            <p>PowerPlant - Vegetariska recept för en aktiv livsstil</p>
-            <p><a href="mailto:kontakt@powerplant.se">Kontakta oss</a></p>
-            <p>© 2026 PowerPlant</p>
+            <section>
+                <p class="rubrik">PowerPlant</p>
+                <p>Vegetariska recept för en aktiv livsstil</p>
+            </section>
+            <section id="kontakt">
+                <p><a href="mailto:kontakt@powerplant.se">Kontakta oss</a></p>
+                <p>© 2026 PowerPlant</p>
+            </section>
         </footer>
     </body>
 </html>

@@ -7,32 +7,22 @@
 
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
     <title>Krämig Lins- och Kokosgryta med Spenat</title>
 </head>
 <body>
 
     <header>
-    <!-- Sidhuvud och navigering -->
-
         <nav>
-        <!-- Huvudmeny -->
-
-            <table cellpadding="10">
-            <!-- En Tabbel, cellpadding gör melanrum i tabellen-->
-
-                <tr>
-                    <td><a href="index.html">Startsida</a></td>
-                    <td><a href="linsgryta.html">Linsgryta</a></td>
-                    <td><a href="halloumigryta.html">Halloumigryta</a></td>
-                    <td><a href="quinoabiffar.html">Quinoabiffar</a></td>
-                    <td><a href="resurser.html">Resurser</a></td>
-                </tr>
-            </table>
+            <ul>
+                <li class="logo"><img id="logo" src="./bilder/logo.png" alt="Logo"></li>
+                <li id="home"><a href="index.html">Startsida</a></li>
+                <li><a href="linsgryta.html" aria-current="page">Linsgryta</a></li>
+                <li><a href="halloumigryta.html">Halloumigryta</a></li>
+                <li><a href="quinoabiffar.html">Quinoabiffar</a></li>
+                <li id="resurser"><a href="resurser.html">Resurser</a></li>
+            </ul>
         </nav>
-
-        <p>PowerPlant</p>
-        <!-- Webplatsens Namn -->
-
     </header>
 
     <br>
@@ -41,6 +31,7 @@
         <article>
         <!-- Ett recept som kan vara självständigt-->
 
+            <p class="rubrik">PowerPlant</p>
             <h1>Krämig Lins- och Kokosgryta med Spenat</h1>
             <!-- Receptets titel-->
 
@@ -182,10 +173,14 @@
     </main>
     <br>
     <footer>
-        <!-- Footern där kotact info fins-->
-        <p>PowerPlant - Vegetariska recept för en aktiv livsstil</p>
-        <p><a href="mailto:kontakt@powerplant.se">Kontakta oss</a></p>
-        <p>© 2026 PowerPlant</p>
+        <section>
+            <p class="rubrik">PowerPlant</p>
+            <p>Vegetariska recept för en aktiv livsstil</p>
+        </section>
+        <section id="kontakt">
+            <p><a href="mailto:kontakt@powerplant.se">Kontakta oss</a></p>
+            <p>© 2026 PowerPlant</p>
+        </section>
     </footer>
 
 </body>
